@@ -6,6 +6,7 @@ import java.util.Objects;
 public class CustomHashMap<K,V> {
     private LinkedList<K> ks = new LinkedList<>();
     private LinkedList<V> vs = new LinkedList<>();
+    //put for not exist key or replace for exist key
     public void put(K key,V value){
         if (ks.contains(key)){
            int index = ks.indexOf(key);
