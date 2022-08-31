@@ -1,6 +1,7 @@
 package four;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class CustomHashMap<K,V> {
     private LinkedList<K> ks = new LinkedList<>();
@@ -31,5 +32,18 @@ public class CustomHashMap<K,V> {
             temp += ks.get(i).toString() + " = " + vs.get(i).toString() + "\n";
         }
         return temp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomHashMap<?, ?> that = (CustomHashMap<?, ?>) o;
+        return ks.equals(that.ks) && vs.equals(that.vs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ks, vs);
     }
 }
